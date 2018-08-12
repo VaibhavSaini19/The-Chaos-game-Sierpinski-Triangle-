@@ -1,0 +1,54 @@
+import turtle
+t=turtle.Turtle()
+
+from math import sqrt
+from random import randint
+
+
+t.speed(speed=0)
+
+
+a=[0,600]
+b=[-519.6152,-300]
+c=[519.6152,-300]
+
+def pts(t):
+  t.pu()
+  t.goto(0,600)
+  t.dot(10,"yellow")
+  t.goto(-519.6152,-300)
+  t.dot(10,"yellow")
+  t.goto(519.6152,-300)
+  t.dot(10,"yellow")
+  
+  
+pts(t)
+t.pu()
+t.goto(-40,0)
+
+for _ in range(1000):
+  r=randint(1,6)
+  x,y=t.pos()
+  t.pu()
+  t.seth(0)
+  if r==1 or r==2:
+ #   l=sqrt((x-a[0])**2 + (y-a[1])**2)
+    l=t.distance(a[0],a[1])
+    rot=t.towards(a[0],a[1])
+    t.lt(rot)
+    t.fd(l/2.0)
+    t.dot(2)
+  elif r==4 or r==5:
+  #  l=sqrt((x-b[0])**2 + (y-b[1])**2)
+    l=t.distance(b[0],b[1])
+    rot=t.towards(b[0],b[1])
+    t.lt(rot)
+    t.fd(l/2.0)
+    t.dot(2)
+  else:
+  #  l=sqrt((x-c[0])**2 + (y-c[1])**2)
+    l=t.distance(c[0],c[1])
+    rot=t.towards(c[0],c[1])
+    t.lt(rot)
+    t.fd(l/2.0)
+    t.dot(2)
